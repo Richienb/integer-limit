@@ -1,6 +1,6 @@
 {
     "name": "integer-limit",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Calculate the integer limit given the amount of bits used. (example: 32-bit limit).",
     "repository": "https://github.com/Richienb/integer-limit.git",
     "author": "Richie Bendall <richiebendall@gmail.com>",
