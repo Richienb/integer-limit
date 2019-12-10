@@ -1,7 +1,5 @@
 "use strict"
 
-module.exports = (input, { postfix = "rainbows" } = {}) => {
-    if (typeof input !== "string") throw new TypeError(`Expected a string, got ${typeof input}`)
+const arch = require("arch")
 
-    return `${input} & ${postfix}`
-}
+module.exports = (bits = arch() === "x64" ? 64 : 32, { bigint = false } = {}) => bigint ? BigInt(2 ** bits / 2) : 2 ** bits / 2

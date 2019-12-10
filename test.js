@@ -1,13 +1,8 @@
 import test from "ava"
-import theModule from "."
+import integerLimit from "."
 
 test("main", (t) => {
-    t.throws(() => {
-        theModule(123)
-    }, {
-        instanceOf: TypeError,
-        message: "Expected a string, got number",
-    })
-
-    t.is(theModule("unicorns"), "unicorns & rainbows")
+    t.is(integerLimit(32), 2147483648)
+    t.is(integerLimit(64), 9223372036854776000)
+    t.is(integerLimit(64, { bigint: true }), 9223372036854775808n)
 })

@@ -1,41 +1,50 @@
-# The module [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/the-module/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/the-module)
+# Integer limit [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/integer-limit/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/integer-limit)
 
-My awesome module.
+Calculate the integer limit given the amount of bits used. (example: 32-bit limit).
 
-[![NPM Badge](https://nodei.co/npm/the-module.png)](https://npmjs.com/package/the-module)
+[![NPM Badge](https://nodei.co/npm/integer-limit.png)](https://npmjs.com/package/integer-limit)
 
 ## Install
 
 ```sh
-npm install the-module
+npm install integer-limit
 ```
 
 ## Usage
 
 ```js
-const theModule = require("the-module");
+const integerLimit = require("integer-limit");
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
+integerLimit(); // Get current integer limit
+9223372036854776000
+
+integerLimit(32); // Get integer limit for 32 bits
+//=> 2147483648
+
+integerLimit(64); // Get integer limit for 64 bits
+//=> 9223372036854776000
+
+integerLimit(64, {bigint: true}); // Get integer limit 64 bits as a bigint
+//=> 9223372036854775808n
 ```
 
 ## API
 
-### theModule(input, options?)
+### integerLimit(bits?, options?)
 
-#### input
+#### bits
 
-Type: `string`
+Type: `number`
 
-Lorem ipsum.
+The amount of bits allowed to be used in order to represent numbers.
 
 #### options
 
 Type: `object`
 
-##### postfix
+##### bigint
 
-Type: `string`\
-Default: `rainbows`
+Type: `boolean`\
+Default: `false`
 
-Lorem ipsum.
+Convert the amount of bits to a BigInt.

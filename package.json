@@ -1,8 +1,8 @@
 {
-    "name": "the-module",
+    "name": "integer-limit",
     "version": "0.0.0",
-    "description": "My awesome module.",
-    "repository": "https://github.com/Richienb/the-module.git",
+    "description": "Calculate the integer limit given the amount of bits used. (example: 32-bit limit).",
+    "repository": "https://github.com/Richienb/integer-limit.git",
     "author": "Richie Bendall <richiebendall@gmail.com>",
     "license": "MIT",
     "main": "index.js",
@@ -11,14 +11,16 @@
         "index.d.ts"
     ],
     "engines": {
-        "node": ">=8"
+        "node": ">=7"
     },
     "scripts": {
         "lint": "xo",
         "test": "yarn lint && ava"
     },
     "keywords": [],
-    "dependencies": {},
+    "dependencies": {
+        "arch": "^2.1.1"
+    },
     "devDependencies": {
         "ava": "^2.1.0",
         "eslint-config-richienb": "^0.2.3",
@@ -28,6 +30,10 @@
         "eslint": "^6.6.0"
     },
     "xo": {
-        "extends": "richienb/node"
+        "extends": "richienb/node",
+        "rules": {
+            "node/no-unsupported-features/es-builtins": 0,
+            "no-mixed-operators": 0
+        }
     }
 }
